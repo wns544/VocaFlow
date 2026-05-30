@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NAV-001">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <scene sceneID="SCN-NAV">
+            <objects>
+                <navigationController id="NAV-001" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NAV-BAR">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="HOME-001" kind="relationship" relationship="rootViewController" id="SEG-ROOT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FR-NAV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-850" y="0.0"/>
+        </scene>
+        <scene sceneID="SCN-HOME">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="HOME-001" customClass="HomeViewController" customModule="SwipeWordStudy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VIEW-HOME">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="fill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="STACK-HOME">
+                                <rect key="frame" x="28" y="294" width="358" height="308"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VocaFlow" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-TITLE">
+                                        <rect key="frame" x="0.0" y="0.0" width="358" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" weight="bold" pointSize="28"/>
+                                        <color key="textColor" red="0.1000000015" green="0.3100000024" blue="0.5199999809" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="단어 카드를 넘기며 빠르게 암기하세요" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-SUBTITLE">
+                                        <rect key="frame" x="0.0" y="52" width="358" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" systemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTN-START">
+                                        <rect key="frame" x="0.0" y="90" width="358" height="52"/>
+                                        <color key="backgroundColor" red="0.01999999955" green="0.5500000119" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="C-START-H"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <state key="normal" title="학습 시작">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="startStudy" destination="HOME-001" eventType="touchUpInside" id="ACT-HOME-START"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTN-LIST">
+                                        <rect key="frame" x="0.0" y="160" width="358" height="52"/>
+                                        <color key="backgroundColor" red="0.1000000015" green="0.3100000024" blue="0.5199999809" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="C-LIST-H"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <state key="normal" title="단어 목록 보기">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showWordList" destination="HOME-001" eventType="touchUpInside" id="ACT-HOME-LIST"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTN-QUIZ">
+                                        <rect key="frame" x="0.0" y="230" width="358" height="52"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="C-QUIZ-H"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <state key="normal" title="퀴즈 모드">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SAFE-HOME"/>
+                        <color key="backgroundColor" red="0.9599999785" green="0.9800000191" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="STACK-HOME" firstAttribute="leading" secondItem="SAFE-HOME" secondAttribute="leading" constant="28" id="C-STACK-L"/>
+                            <constraint firstItem="SAFE-HOME" firstAttribute="trailing" secondItem="STACK-HOME" secondAttribute="trailing" constant="28" id="C-STACK-R"/>
+                            <constraint firstItem="STACK-HOME" firstAttribute="centerY" secondItem="SAFE-HOME" secondAttribute="centerY" id="C-STACK-Y"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="홈" id="NAVITEM-HOME"/>
+                    <connections>
+                        <outlet property="listButton" destination="BTN-LIST" id="OUT-LIST"/>
+                        <outlet property="quizButton" destination="BTN-QUIZ" id="OUT-QUIZ"/>
+                        <outlet property="startButton" destination="BTN-START" id="OUT-START"/>
+                        <outlet property="subtitleLabel" destination="LBL-SUBTITLE" id="OUT-SUBTITLE"/>
+                        <outlet property="titleLabel" destination="LBL-TITLE" id="OUT-TITLE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FR-HOME" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <scene sceneID="SCN-LIST">
+            <objects>
+                <viewController storyboardIdentifier="WordListViewController" id="LIST-001" customClass="WordListViewController" customModule="SwipeWordStudy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VIEW-LIST">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="단어 검색" translatesAutoresizingMaskIntoConstraints="NO" id="SEARCH-LIST">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="insetGrouped" separatorStyle="default" rowHeight="78" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="TABLE-LIST">
+                                <rect key="frame" x="0.0" y="144" width="414" height="752"/>
+                                <color key="backgroundColor" red="0.9599999785" green="0.9800000191" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SAFE-LIST"/>
+                        <color key="backgroundColor" red="0.9599999785" green="0.9800000191" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SEARCH-LIST" firstAttribute="top" secondItem="SAFE-LIST" secondAttribute="top" id="C-LIST-SEARCH-T"/>
+                            <constraint firstItem="SEARCH-LIST" firstAttribute="leading" secondItem="VIEW-LIST" secondAttribute="leading" id="C-LIST-SEARCH-L"/>
+                            <constraint firstItem="VIEW-LIST" firstAttribute="trailing" secondItem="SEARCH-LIST" secondAttribute="trailing" id="C-LIST-SEARCH-R"/>
+                            <constraint firstItem="TABLE-LIST" firstAttribute="top" secondItem="SEARCH-LIST" secondAttribute="bottom" id="C-LIST-TABLE-T"/>
+                            <constraint firstItem="TABLE-LIST" firstAttribute="leading" secondItem="VIEW-LIST" secondAttribute="leading" id="C-LIST-TABLE-L"/>
+                            <constraint firstItem="VIEW-LIST" firstAttribute="trailing" secondItem="TABLE-LIST" secondAttribute="trailing" id="C-LIST-TABLE-R"/>
+                            <constraint firstAttribute="bottom" secondItem="TABLE-LIST" secondAttribute="bottom" id="C-LIST-TABLE-B"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="단어 목록" id="NAVITEM-LIST"/>
+                    <connections>
+                        <outlet property="searchBar" destination="SEARCH-LIST" id="OUT-LIST-SEARCH"/>
+                        <outlet property="tableView" destination="TABLE-LIST" id="OUT-LIST-TABLE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FR-LIST" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="910" y="-380"/>
+        </scene>
+        <scene sceneID="SCN-DETAIL">
+            <objects>
+                <viewController storyboardIdentifier="WordDetailViewController" id="DETAIL-001" customClass="WordDetailViewController" customModule="SwipeWordStudy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VIEW-DETAIL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CARD-DETAIL">
+                                <rect key="frame" x="24" y="263" width="366" height="370"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="fill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="STACK-DETAIL">
+                                        <rect key="frame" x="24" y="28" width="318" height="314"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새 단어" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-DETAIL-STATE">
+                                                <rect key="frame" x="0.0" y="0.0" width="318" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="C-DETAIL-STATE-H"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                <color key="textColor" systemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="word" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-DETAIL-TERM">
+                                                <rect key="frame" x="0.0" y="42" width="318" height="43"/>
+                                                <fontDescription key="fontDescription" type="system" weight="bold" pointSize="36"/>
+                                                <color key="textColor" red="0.1000000015" green="0.3100000024" blue="0.5199999809" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="뜻" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-DETAIL-MEANING">
+                                                <rect key="frame" x="0.0" y="103" width="318" height="60"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="읽기" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-DETAIL-READING">
+                                                <rect key="frame" x="0.0" y="181" width="318" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="예문" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-DETAIL-EXAMPLE">
+                                                <rect key="frame" x="0.0" y="239" width="318" height="75"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="STACK-DETAIL" firstAttribute="top" secondItem="CARD-DETAIL" secondAttribute="top" constant="28" id="C-DETAIL-STACK-T"/>
+                                    <constraint firstItem="STACK-DETAIL" firstAttribute="leading" secondItem="CARD-DETAIL" secondAttribute="leading" constant="24" id="C-DETAIL-STACK-L"/>
+                                    <constraint firstAttribute="trailing" secondItem="STACK-DETAIL" secondAttribute="trailing" constant="24" id="C-DETAIL-STACK-R"/>
+                                    <constraint firstAttribute="bottom" secondItem="STACK-DETAIL" secondAttribute="bottom" constant="28" id="C-DETAIL-STACK-B"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SAFE-DETAIL"/>
+                        <color key="backgroundColor" red="0.9599999785" green="0.9800000191" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="CARD-DETAIL" firstAttribute="leading" secondItem="SAFE-DETAIL" secondAttribute="leading" constant="24" id="C-DETAIL-CARD-L"/>
+                            <constraint firstItem="SAFE-DETAIL" firstAttribute="trailing" secondItem="CARD-DETAIL" secondAttribute="trailing" constant="24" id="C-DETAIL-CARD-R"/>
+                            <constraint firstItem="CARD-DETAIL" firstAttribute="centerY" secondItem="SAFE-DETAIL" secondAttribute="centerY" id="C-DETAIL-CARD-Y"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="단어" id="NAVITEM-DETAIL"/>
+                    <connections>
+                        <outlet property="cardView" destination="CARD-DETAIL" id="OUT-DETAIL-CARD"/>
+                        <outlet property="exampleLabel" destination="LBL-DETAIL-EXAMPLE" id="OUT-DETAIL-EXAMPLE"/>
+                        <outlet property="meaningLabel" destination="LBL-DETAIL-MEANING" id="OUT-DETAIL-MEANING"/>
+                        <outlet property="readingLabel" destination="LBL-DETAIL-READING" id="OUT-DETAIL-READING"/>
+                        <outlet property="stateLabel" destination="LBL-DETAIL-STATE" id="OUT-DETAIL-STATE"/>
+                        <outlet property="termLabel" destination="LBL-DETAIL-TERM" id="OUT-DETAIL-TERM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FR-DETAIL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1820" y="-380"/>
+        </scene>
+        <scene sceneID="SCN-STUDY">
+            <objects>
+                <viewController storyboardIdentifier="StudyViewController" id="STUDY-001" customClass="StudyViewController" customModule="SwipeWordStudy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VIEW-STUDY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 / 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-PROGRESS">
+                                <rect key="frame" x="28" y="112" width="358" height="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <color key="textColor" systemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CARD-STUDY">
+                                <rect key="frame" x="26" y="284" width="362" height="330"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="fill" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="STACK-STUDY">
+                                        <rect key="frame" x="24" y="99" width="314" height="132"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="word" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-WORD">
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" weight="bold" pointSize="42"/>
+                                                <color key="textColor" red="0.1000000015" green="0.3100000024" blue="0.5199999809" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-MEANING">
+                                                <rect key="frame" x="0.0" y="72" width="314" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                <color key="textColor" systemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카드를 누르면 뜻 보기" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-HINT">
+                                                <rect key="frame" x="0.0" y="94" width="314" height="38"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" systemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="STACK-STUDY" firstAttribute="leading" secondItem="CARD-STUDY" secondAttribute="leading" constant="24" id="C-STUDY-STACK-L"/>
+                                    <constraint firstAttribute="trailing" secondItem="STACK-STUDY" secondAttribute="trailing" constant="24" id="C-STUDY-STACK-R"/>
+                                    <constraint firstItem="STACK-STUDY" firstAttribute="centerY" secondItem="CARD-STUDY" secondAttribute="centerY" id="C-STUDY-STACK-Y"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SAFE-STUDY"/>
+                        <color key="backgroundColor" red="0.9599999785" green="0.9800000191" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LBL-PROGRESS" firstAttribute="top" secondItem="SAFE-STUDY" secondAttribute="top" constant="24" id="C-STUDY-PROG-T"/>
+                            <constraint firstItem="LBL-PROGRESS" firstAttribute="leading" secondItem="SAFE-STUDY" secondAttribute="leading" constant="28" id="C-STUDY-PROG-L"/>
+                            <constraint firstItem="SAFE-STUDY" firstAttribute="trailing" secondItem="LBL-PROGRESS" secondAttribute="trailing" constant="28" id="C-STUDY-PROG-R"/>
+                            <constraint firstItem="CARD-STUDY" firstAttribute="leading" secondItem="SAFE-STUDY" secondAttribute="leading" constant="26" id="C-STUDY-CARD-L"/>
+                            <constraint firstItem="SAFE-STUDY" firstAttribute="trailing" secondItem="CARD-STUDY" secondAttribute="trailing" constant="26" id="C-STUDY-CARD-R"/>
+                            <constraint firstItem="CARD-STUDY" firstAttribute="centerY" secondItem="SAFE-STUDY" secondAttribute="centerY" id="C-STUDY-CARD-Y"/>
+                            <constraint firstItem="CARD-STUDY" firstAttribute="height" constant="330" id="C-STUDY-CARD-H"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="카드 학습" id="NAVITEM-STUDY"/>
+                    <connections>
+                        <outlet property="cardView" destination="CARD-STUDY" id="OUT-STUDY-CARD"/>
+                        <outlet property="hintLabel" destination="LBL-HINT" id="OUT-STUDY-HINT"/>
+                        <outlet property="meaningLabel" destination="LBL-MEANING" id="OUT-STUDY-MEANING"/>
+                        <outlet property="progressLabel" destination="LBL-PROGRESS" id="OUT-STUDY-PROGRESS"/>
+                        <outlet property="wordLabel" destination="LBL-WORD" id="OUT-STUDY-WORD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FR-STUDY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="910" y="0.0"/>
+        </scene>
+        <scene sceneID="SCN-QUIZ">
+            <objects>
+                <viewController storyboardIdentifier="QuizViewController" id="QUIZ-001" customClass="QuizViewController" customModule="SwipeWordStudy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VIEW-QUIZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="퀴즈 화면은 아직 만드는 중" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-QUIZ-MSG">
+                                <rect key="frame" x="28" y="435" width="358" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" systemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SAFE-QUIZ"/>
+                        <color key="backgroundColor" red="0.9599999785" green="0.9800000191" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LBL-QUIZ-MSG" firstAttribute="leading" secondItem="SAFE-QUIZ" secondAttribute="leading" constant="28" id="C-QUIZ-MSG-L"/>
+                            <constraint firstItem="SAFE-QUIZ" firstAttribute="trailing" secondItem="LBL-QUIZ-MSG" secondAttribute="trailing" constant="28" id="C-QUIZ-MSG-R"/>
+                            <constraint firstItem="LBL-QUIZ-MSG" firstAttribute="centerY" secondItem="SAFE-QUIZ" secondAttribute="centerY" id="C-QUIZ-MSG-Y"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="퀴즈" id="NAVITEM-QUIZ"/>
+                    <connections>
+                        <outlet property="messageLabel" destination="LBL-QUIZ-MSG" id="OUT-QUIZ-MSG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FR-QUIZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="910" y="380"/>
+        </scene>
+        <scene sceneID="SCN-RESULT">
+            <objects>
+                <viewController storyboardIdentifier="ResultViewController" id="RESULT-001" customClass="ResultViewController" customModule="SwipeWordStudy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VIEW-RESULT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결과 화면은 나중에 추가" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-RESULT-MSG">
+                                <rect key="frame" x="28" y="435" width="358" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" systemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SAFE-RESULT"/>
+                        <color key="backgroundColor" red="0.9599999785" green="0.9800000191" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LBL-RESULT-MSG" firstAttribute="leading" secondItem="SAFE-RESULT" secondAttribute="leading" constant="28" id="C-RESULT-MSG-L"/>
+                            <constraint firstItem="SAFE-RESULT" firstAttribute="trailing" secondItem="LBL-RESULT-MSG" secondAttribute="trailing" constant="28" id="C-RESULT-MSG-R"/>
+                            <constraint firstItem="LBL-RESULT-MSG" firstAttribute="centerY" secondItem="SAFE-RESULT" secondAttribute="centerY" id="C-RESULT-MSG-Y"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="학습 결과" id="NAVITEM-RESULT"/>
+                    <connections>
+                        <outlet property="messageLabel" destination="LBL-RESULT-MSG" id="OUT-RESULT-MSG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FR-RESULT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1820" y="0.0"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.3450980392" green="0.337254902" blue="0.8392156863" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

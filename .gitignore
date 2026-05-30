@@ -1,0 +1,11 @@
+DerivedData/
+DerivedData-Xcode12/
+*.xcuserstate
+*.xcuserdatad/
+.DS_Store
+build/
+*.ipa
+*.dSYM/
+README.md
+simulator-*.png
+인수인계서/
