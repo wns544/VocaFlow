@@ -11,11 +11,6 @@ final class HomeViewController: UIViewController {
         super.viewDidLoad()
         title = "홈"
         UIFactory.applyNavigationStyle(to: navigationController)
-        setupStoryboardView()
-    }
-
-    private func setupStoryboardView() {
-        quizButton?.isHidden = true
     }
 
     @IBAction func startStudy() {
