@@ -6,7 +6,6 @@ final class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "학습 결과"
-        view.backgroundColor = UIFactory.backgroundColor
         messageLabel.text = "결과 화면은 나중에 추가"
     }
 }

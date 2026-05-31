@@ -9,7 +9,6 @@ final class WordListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "단어 목록"
-        view.backgroundColor = UIFactory.backgroundColor
         UIFactory.applyNavigationStyle(to: navigationController)
         setupStoryboardParts()
     }
@@ -25,9 +24,6 @@ final class WordListViewController: UIViewController {
         searchBar.searchBarStyle = .minimal
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(WordListCell.self, forCellReuseIdentifier: "WordCell")
-        tableView.backgroundColor = UIFactory.backgroundColor
-        tableView.rowHeight = 78
     }
 
     private func filterWords(with text: String) {
@@ -56,9 +52,9 @@ extension WordListViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let word = filteredWords[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "WordCell", for: indexPath) as? WordListCell
-            ?? WordListCell(style: .subtitle, reuseIdentifier: "WordCell")
-        cell.configure(with: word)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WordCell", for: indexPath)
+        cell.textLabel?.text = word.term
+        cell.detailTextLabel?.text = "\(word.meaning)  ·  \(word.state.rawValue)"
         cell.accessoryType = .disclosureIndicator
         return cell
     }
@@ -70,17 +66,5 @@ extension WordListViewController: UITableViewDataSource, UITableViewDelegate {
             ?? WordDetailViewController()
         detail.configure(word: word)
         navigationController?.pushViewController(detail, animated: true)
-    }
-}
-
-final class WordListCell: UITableViewCell {
-    func configure(with word: Word) {
-        textLabel?.text = word.term
-        textLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        textLabel?.textColor = UIFactory.primaryColor
-
-        detailTextLabel?.text = "\(word.meaning)  ·  \(word.state.rawValue)"
-        detailTextLabel?.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        detailTextLabel?.textColor = UIFactory.mutedTextColor
     }
 }

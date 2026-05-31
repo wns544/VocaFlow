@@ -83,7 +83,6 @@ final class StudySession {
         let word = queue.removeFirst()
         WordStore.shared.mark(word, as: .review)
 
-        // 틀린 단어는 조금 뒤에 다시 나오게 해봄
         if !queue.isEmpty {
             let index = min(2, queue.count)
             queue.insert(word, at: index)

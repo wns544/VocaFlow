@@ -28,7 +28,6 @@ final class StudyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "학습"
-        view.backgroundColor = UIFactory.backgroundColor
         UIFactory.applyNavigationStyle(to: navigationController)
         setupStoryboardParts()
         setupGestures()
@@ -36,30 +35,11 @@ final class StudyViewController: UIViewController {
     }
 
     private func setupStoryboardParts() {
-        progressLabel.font = UIFont.systemFont(ofSize: 15, weight: .medium)
-        progressLabel.textColor = UIFactory.mutedTextColor
-
-        cardView.backgroundColor = UIFactory.cardColor
         cardView.layer.cornerRadius = 22
         cardView.layer.shadowColor = UIColor.black.cgColor
         cardView.layer.shadowOpacity = 0.12
         cardView.layer.shadowRadius = 18
         cardView.layer.shadowOffset = CGSize(width: 0, height: 8)
-
-        wordLabel.font = UIFont.systemFont(ofSize: 42, weight: .bold)
-        wordLabel.textColor = UIFactory.primaryColor
-        wordLabel.textAlignment = .center
-        wordLabel.numberOfLines = 0
-
-        meaningLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
-        meaningLabel.textColor = UIFactory.textColor
-        meaningLabel.textAlignment = .center
-        meaningLabel.numberOfLines = 0
-
-        hintLabel.font = UIFont.systemFont(ofSize: 15, weight: .regular)
-        hintLabel.textColor = UIFactory.mutedTextColor
-        hintLabel.textAlignment = .center
-        hintLabel.numberOfLines = 0
     }
 
     private func setupGestures() {

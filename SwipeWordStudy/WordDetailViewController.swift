@@ -17,7 +17,6 @@ final class WordDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = word?.term ?? "단어"
-        view.backgroundColor = UIFactory.backgroundColor
         UIFactory.applyNavigationStyle(to: navigationController)
         setupStoryboardParts()
         fillWord()
@@ -32,16 +31,6 @@ final class WordDetailViewController: UIViewController {
 
         stateLabel.layer.cornerRadius = 12
         stateLabel.layer.masksToBounds = true
-        stateLabel.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
-
-        termLabel.font = UIFont.systemFont(ofSize: 36, weight: .bold)
-        termLabel.textColor = UIFactory.primaryColor
-
-        [meaningLabel, readingLabel, exampleLabel].forEach {
-            $0?.font = UIFont.systemFont(ofSize: 17)
-            $0?.textColor = UIFactory.textColor
-            $0?.numberOfLines = 0
-        }
     }
 
     private func fillWord() {

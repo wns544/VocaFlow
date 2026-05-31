@@ -2,8 +2,6 @@ import Foundation
 
 extension WordStore {
     static func sampleWords() -> [Word] {
-        // 영어 단어는 깃허브 공개 단어 리스트 참고함
-        // 뜻이랑 예문은 앱에 맞게 적어둔거
         let entries: [(String, String, String, String)] = [
             ("abandon", "버리다, 포기하다", "어밴던", "Do not abandon your plan too early."),
             ("ability", "능력", "어빌리티", "She has the ability to solve problems."),
