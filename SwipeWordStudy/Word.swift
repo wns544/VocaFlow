@@ -57,6 +57,8 @@ final class WordStore {
 
 final class StudySession {
     private(set) var queue: [Word]
+    private(set) var memorizedCount = 0
+    private(set) var reviewCount = 0
     let totalCount: Int
 
     init(words: [Word]) {
@@ -75,12 +77,14 @@ final class StudySession {
     func markCurrentAsMemorized() {
         guard !queue.isEmpty else { return }
         let word = queue.removeFirst()
+        memorizedCount += 1
         WordStore.shared.mark(word, as: .memorized)
     }
 
     func markCurrentForReview() {
         guard !queue.isEmpty else { return }
         let word = queue.removeFirst()
+        reviewCount += 1
         WordStore.shared.mark(word, as: .review)
 
         if !queue.isEmpty {

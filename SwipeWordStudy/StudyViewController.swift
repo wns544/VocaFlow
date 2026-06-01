@@ -52,7 +52,7 @@ final class StudyViewController: UIViewController {
 
     private func showCurrentWord() {
         guard let word = session.currentWord else {
-            showFinishAlert()
+            showResult()
             return
         }
 
@@ -128,11 +128,14 @@ final class StudyViewController: UIViewController {
         }
     }
 
-    private func showFinishAlert() {
-        let alert = UIAlertController(title: "끝", message: "오늘 단어를 다 봤습니다.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "확인", style: .default) { _ in
-            self.navigationController?.popToRootViewController(animated: true)
-        })
-        present(alert, animated: true)
+    private func showResult() {
+        let resultViewController = storyboard?.instantiateViewController(withIdentifier: "ResultViewController") as? ResultViewController
+            ?? ResultViewController()
+        resultViewController.configure(
+            totalCount: session.totalCount,
+            memorizedCount: session.memorizedCount,
+            reviewCount: session.reviewCount
+        )
+        navigationController?.pushViewController(resultViewController, animated: true)
     }
 }

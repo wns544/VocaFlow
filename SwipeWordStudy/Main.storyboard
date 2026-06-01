@@ -364,24 +364,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결과 화면은 나중에 추가" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-RESULT-MSG">
-                                <rect key="frame" x="28" y="435" width="358" height="26"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" systemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="fill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="STACK-RESULT">
+                                <rect key="frame" x="32" y="303" width="350" height="290"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘 학습 끝" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-RESULT-MSG">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" weight="bold" pointSize="30"/>
+                                        <color key="textColor" red="0.1000000015" green="0.3100000024" blue="0.5199999809" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전체 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-RESULT-TOTAL">
+                                        <rect key="frame" x="0.0" y="54" width="350" height="26"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <color key="textColor" systemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="외움 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-RESULT-MEMO">
+                                        <rect key="frame" x="0.0" y="98" width="350" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" systemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다시 봄 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-RESULT-REVIEW">
+                                        <rect key="frame" x="0.0" y="140" width="350" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" systemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTN-RESULT-HOME">
+                                        <rect key="frame" x="0.0" y="182" width="350" height="52"/>
+                                        <color key="backgroundColor" red="0.01999999955" green="0.5500000119" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="C-RESULT-HOME-H"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <state key="normal" title="처음으로">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goHome" destination="RESULT-001" eventType="touchUpInside" id="ACT-RESULT-HOME"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SAFE-RESULT"/>
                         <color key="backgroundColor" red="0.9599999785" green="0.9800000191" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="LBL-RESULT-MSG" firstAttribute="leading" secondItem="SAFE-RESULT" secondAttribute="leading" constant="28" id="C-RESULT-MSG-L"/>
-                            <constraint firstItem="SAFE-RESULT" firstAttribute="trailing" secondItem="LBL-RESULT-MSG" secondAttribute="trailing" constant="28" id="C-RESULT-MSG-R"/>
-                            <constraint firstItem="LBL-RESULT-MSG" firstAttribute="centerY" secondItem="SAFE-RESULT" secondAttribute="centerY" id="C-RESULT-MSG-Y"/>
+                            <constraint firstItem="STACK-RESULT" firstAttribute="leading" secondItem="SAFE-RESULT" secondAttribute="leading" constant="32" id="C-RESULT-STACK-L"/>
+                            <constraint firstItem="SAFE-RESULT" firstAttribute="trailing" secondItem="STACK-RESULT" secondAttribute="trailing" constant="32" id="C-RESULT-STACK-R"/>
+                            <constraint firstItem="STACK-RESULT" firstAttribute="centerY" secondItem="SAFE-RESULT" secondAttribute="centerY" id="C-RESULT-STACK-Y"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="학습 결과" id="NAVITEM-RESULT"/>
                     <connections>
+                        <outlet property="memorizedLabel" destination="LBL-RESULT-MEMO" id="OUT-RESULT-MEMO"/>
                         <outlet property="messageLabel" destination="LBL-RESULT-MSG" id="OUT-RESULT-MSG"/>
+                        <outlet property="reviewLabel" destination="LBL-RESULT-REVIEW" id="OUT-RESULT-REVIEW"/>
+                        <outlet property="totalLabel" destination="LBL-RESULT-TOTAL" id="OUT-RESULT-TOTAL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FR-RESULT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
