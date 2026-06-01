@@ -333,24 +333,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="퀴즈 화면은 아직 만드는 중" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-QUIZ-MSG">
-                                <rect key="frame" x="28" y="435" width="358" height="26"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" systemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="fill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="STACK-QUIZ">
+                                <rect key="frame" x="32" y="288" width="350" height="320"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="문제 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-QUIZ-PROGRESS">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" systemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="word" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-QUIZ-WORD">
+                                        <rect key="frame" x="0.0" y="36" width="350" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" weight="bold" pointSize="36"/>
+                                        <color key="textColor" red="0.1000000015" green="0.3100000024" blue="0.5199999809" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="뜻을 입력하세요" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FIELD-QUIZ-ANSWER">
+                                        <rect key="frame" x="0.0" y="95" width="350" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="C-QUIZ-FIELD-H"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTN-QUIZ-CHECK">
+                                        <rect key="frame" x="0.0" y="155" width="350" height="52"/>
+                                        <color key="backgroundColor" red="0.01999999955" green="0.5500000119" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="C-QUIZ-CHECK-H"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <state key="normal" title="정답 확인">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkAnswer" destination="QUIZ-001" eventType="touchUpInside" id="ACT-QUIZ-CHECK"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 확인 안함" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-QUIZ-FEEDBACK">
+                                        <rect key="frame" x="0.0" y="223" width="350" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SAFE-QUIZ"/>
                         <color key="backgroundColor" red="0.9599999785" green="0.9800000191" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="LBL-QUIZ-MSG" firstAttribute="leading" secondItem="SAFE-QUIZ" secondAttribute="leading" constant="28" id="C-QUIZ-MSG-L"/>
-                            <constraint firstItem="SAFE-QUIZ" firstAttribute="trailing" secondItem="LBL-QUIZ-MSG" secondAttribute="trailing" constant="28" id="C-QUIZ-MSG-R"/>
-                            <constraint firstItem="LBL-QUIZ-MSG" firstAttribute="centerY" secondItem="SAFE-QUIZ" secondAttribute="centerY" id="C-QUIZ-MSG-Y"/>
+                            <constraint firstItem="STACK-QUIZ" firstAttribute="leading" secondItem="SAFE-QUIZ" secondAttribute="leading" constant="32" id="C-QUIZ-STACK-L"/>
+                            <constraint firstItem="SAFE-QUIZ" firstAttribute="trailing" secondItem="STACK-QUIZ" secondAttribute="trailing" constant="32" id="C-QUIZ-STACK-R"/>
+                            <constraint firstItem="STACK-QUIZ" firstAttribute="centerY" secondItem="SAFE-QUIZ" secondAttribute="centerY" id="C-QUIZ-STACK-Y"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="퀴즈" id="NAVITEM-QUIZ"/>
                     <connections>
-                        <outlet property="messageLabel" destination="LBL-QUIZ-MSG" id="OUT-QUIZ-MSG"/>
+                        <outlet property="answerField" destination="FIELD-QUIZ-ANSWER" id="OUT-QUIZ-FIELD"/>
+                        <outlet property="feedbackLabel" destination="LBL-QUIZ-FEEDBACK" id="OUT-QUIZ-FEEDBACK"/>
+                        <outlet property="progressLabel" destination="LBL-QUIZ-PROGRESS" id="OUT-QUIZ-PROGRESS"/>
+                        <outlet property="questionLabel" destination="LBL-QUIZ-WORD" id="OUT-QUIZ-WORD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FR-QUIZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
