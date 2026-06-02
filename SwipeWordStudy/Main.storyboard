@@ -74,7 +74,7 @@
                                             <action selector="showWordList" destination="HOME-001" eventType="touchUpInside" id="ACT-HOME-LIST"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTN-QUIZ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTN-QUIZ">
                                         <rect key="frame" x="0.0" y="230" width="358" height="52"/>
                                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                         <constraints>
@@ -84,6 +84,9 @@
                                         <state key="normal" title="퀴즈 모드">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="QUIZ-001" kind="show" id="SEGUE-HOME-QUIZ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
