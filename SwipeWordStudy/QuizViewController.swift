@@ -2,12 +2,14 @@ import UIKit
 
 final class QuizViewController: UIViewController {
     @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerField: UITextField!
     @IBOutlet weak var feedbackLabel: UILabel!
 
     private var words = Array(WordStore.shared.words.shuffled().prefix(10))
     private var currentIndex = 0
+    private var correctCount = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +19,8 @@ final class QuizViewController: UIViewController {
 
     private func showQuestion() {
         guard currentIndex < words.count else {
+            progressLabel.text = "문제 끝"
+            scoreLabel.text = "점수 \(correctCount) / \(words.count)"
             feedbackLabel.text = "퀴즈 끝"
             questionLabel.text = "-"
             answerField.text = ""
@@ -25,6 +29,7 @@ final class QuizViewController: UIViewController {
 
         let word = words[currentIndex]
         progressLabel.text = "문제 \(currentIndex + 1) / \(words.count)"
+        scoreLabel.text = "점수 \(correctCount)"
         questionLabel.text = word.term
         answerField.text = ""
         feedbackLabel.text = "뜻을 입력하고 확인"
@@ -36,6 +41,8 @@ final class QuizViewController: UIViewController {
         let answer = (answerField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
 
         if !answer.isEmpty && word.meaning.contains(answer) {
+            correctCount += 1
+            scoreLabel.text = "점수 \(correctCount)"
             feedbackLabel.text = "맞은듯\n\(word.meaning)"
             WordStore.shared.mark(word, as: .memorized)
         } else {
