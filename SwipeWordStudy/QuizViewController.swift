@@ -10,6 +10,7 @@ final class QuizViewController: UIViewController {
     private var words = Array(WordStore.shared.words.shuffled().prefix(10))
     private var currentIndex = 0
     private var correctCount = 0
+    private var didShowResult = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ final class QuizViewController: UIViewController {
             feedbackLabel.text = "퀴즈 끝"
             questionLabel.text = "-"
             answerField.text = ""
+            showResultLater()
             return
         }
 
@@ -53,6 +55,27 @@ final class QuizViewController: UIViewController {
         currentIndex += 1
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
             self.showQuestion()
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let result = segue.destination as? ResultViewController else { return }
+        result.configure(
+            totalCount: words.count,
+            memorizedCount: correctCount,
+            reviewCount: words.count - correctCount,
+            screenTitle: "퀴즈 결과",
+            messageText: "퀴즈 끝",
+            memorizedText: "맞음",
+            reviewText: "틀림"
+        )
+    }
+
+    private func showResultLater() {
+        guard !didShowResult else { return }
+        didShowResult = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+            self.performSegue(withIdentifier: "showQuizResult", sender: nil)
         }
     }
 }

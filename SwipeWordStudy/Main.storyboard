@@ -403,6 +403,7 @@
                         <outlet property="progressLabel" destination="LBL-QUIZ-PROGRESS" id="OUT-QUIZ-PROGRESS"/>
                         <outlet property="questionLabel" destination="LBL-QUIZ-WORD" id="OUT-QUIZ-WORD"/>
                         <outlet property="scoreLabel" destination="LBL-QUIZ-SCORE" id="OUT-QUIZ-SCORE"/>
+                        <segue destination="RESULT-001" kind="show" identifier="showQuizResult" id="SEGUE-QUIZ-RESULT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FR-QUIZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
