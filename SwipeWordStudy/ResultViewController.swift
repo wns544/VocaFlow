@@ -3,6 +3,7 @@ import UIKit
 final class ResultViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var percentLabel: UILabel!
     @IBOutlet weak var memorizedLabel: UILabel!
     @IBOutlet weak var reviewLabel: UILabel!
 
@@ -11,6 +12,7 @@ final class ResultViewController: UIViewController {
     private var reviewCount = 0
     private var screenTitle = "학습 결과"
     private var messageText = "오늘 학습 끝"
+    private var percentText = "외운 비율"
     private var memorizedText = "외움"
     private var reviewText = "다시 봄"
 
@@ -20,6 +22,7 @@ final class ResultViewController: UIViewController {
         reviewCount: Int,
         screenTitle: String = "학습 결과",
         messageText: String = "오늘 학습 끝",
+        percentText: String = "외운 비율",
         memorizedText: String = "외움",
         reviewText: String = "다시 봄"
     ) {
@@ -28,6 +31,7 @@ final class ResultViewController: UIViewController {
         self.reviewCount = reviewCount
         self.screenTitle = screenTitle
         self.messageText = messageText
+        self.percentText = percentText
         self.memorizedText = memorizedText
         self.reviewText = reviewText
     }
@@ -36,8 +40,10 @@ final class ResultViewController: UIViewController {
         super.viewDidLoad()
         title = screenTitle
         navigationItem.hidesBackButton = true
+        let percent = totalCount == 0 ? 0 : Int((Double(memorizedCount) / Double(totalCount)) * 100)
         messageLabel.text = messageText
         totalLabel.text = "전체 \(totalCount)"
+        percentLabel.text = "\(percentText) \(percent)%"
         memorizedLabel.text = "\(memorizedText) \(memorizedCount)"
         reviewLabel.text = "\(reviewText) \(reviewCount)"
     }

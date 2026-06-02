@@ -66,6 +66,7 @@ final class QuizViewController: UIViewController {
             reviewCount: words.count - correctCount,
             screenTitle: "퀴즈 결과",
             messageText: "퀴즈 끝",
+            percentText: "정답률",
             memorizedText: "맞음",
             reviewText: "틀림"
         )
