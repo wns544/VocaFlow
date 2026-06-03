@@ -2,6 +2,7 @@ import UIKit
 
 final class WordListViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var filterControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
 
     private var filteredWords = WordStore.shared.words
@@ -15,33 +16,51 @@ final class WordListViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        filterWords(with: searchBar.text ?? "")
+        filterWords()
     }
 
     private func setupStoryboardParts() {
         searchBar.placeholder = "단어 검색"
         searchBar.delegate = self
         searchBar.searchBarStyle = .minimal
+        filterControl.selectedSegmentIndex = 0
         tableView.dataSource = self
         tableView.delegate = self
     }
 
-    private func filterWords(with text: String) {
-        let query = text.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-        if query.isEmpty {
-            filteredWords = WordStore.shared.words
-        } else {
-            filteredWords = WordStore.shared.words.filter {
-                $0.term.lowercased().contains(query) || $0.meaning.lowercased().contains(query)
+    private func filterWords() {
+        let query = (searchBar.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        filteredWords = WordStore.shared.words.filter { word in
+            let matchesSearch = query.isEmpty
+                || word.term.lowercased().contains(query)
+                || word.meaning.lowercased().contains(query)
+            let matchesState: Bool
+            switch filterControl.selectedSegmentIndex {
+            case 1:
+                matchesState = word.state == .memorized
+            case 2:
+                matchesState = word.state == .review
+            default:
+                matchesState = true
             }
+            return matchesSearch && matchesState
         }
+        title = "단어 목록 \(filteredWords.count)"
         tableView.reloadData()
+    }
+
+    @IBAction func stateFilterChanged() {
+        filterWords()
     }
 }
 
 extension WordListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filterWords(with: searchText)
+        filterWords()
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
 
