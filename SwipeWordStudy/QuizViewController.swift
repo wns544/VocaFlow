@@ -15,6 +15,7 @@ final class QuizViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "퀴즈"
+        answerField.delegate = self
         showQuestion()
     }
 
@@ -42,10 +43,17 @@ final class QuizViewController: UIViewController {
         let word = words[currentIndex]
         let answer = (answerField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
 
-        if !answer.isEmpty && word.meaning.contains(answer) {
+        guard !answer.isEmpty else {
+            feedbackLabel.text = "뜻을 먼저 입력"
+            answerField.becomeFirstResponder()
+            return
+        }
+
+        answerField.resignFirstResponder()
+        if word.meaning.contains(answer) {
             correctCount += 1
             scoreLabel.text = "점수 \(correctCount)"
-            feedbackLabel.text = "맞은듯\n\(word.meaning)"
+            feedbackLabel.text = "맞음\n\(word.meaning)"
             WordStore.shared.mark(word, as: .memorized)
         } else {
             feedbackLabel.text = "틀림\n정답: \(word.meaning)"
@@ -78,5 +86,12 @@ final class QuizViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
             self.performSegue(withIdentifier: "showQuizResult", sender: nil)
         }
+    }
+}
+
+extension QuizViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        checkAnswer()
+        return true
     }
 }
