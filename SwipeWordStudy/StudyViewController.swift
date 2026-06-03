@@ -6,6 +6,7 @@ final class StudyViewController: UIViewController {
     private var isMovingCard = false
 
     @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var meaningLabel: UILabel!
@@ -60,7 +61,8 @@ final class StudyViewController: UIViewController {
         wordLabel.text = word.term
         meaningLabel.text = ""
         hintLabel.text = "카드를 누르면 뜻 보기\n위로 넘기면 외움, 아래로 넘기면 다시 보기"
-        progressLabel.text = "\(session.completedCount) / \(session.totalCount)"
+        progressLabel.text = "진행 \(session.completedCount) / \(session.totalCount)"
+        statusLabel.text = "외움 \(session.memorizedCount)  다시 \(session.reviewCount)  남음 \(session.queue.count)"
         cardView.transform = .identity
         cardView.alpha = 1
     }
@@ -71,7 +73,7 @@ final class StudyViewController: UIViewController {
 
         if showingAnswer {
             meaningLabel.text = "\(word.meaning)\n\(word.reading)\n\(word.example)"
-            hintLabel.text = "이제 위나 아래로 넘기면 됨"
+            hintLabel.text = "위로 넘기면 외움, 아래로 넘기면 다시"
         } else {
             meaningLabel.text = ""
             hintLabel.text = "카드를 누르면 뜻 보기\n위로 넘기면 외움, 아래로 넘기면 다시 보기"

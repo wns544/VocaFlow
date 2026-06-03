@@ -291,6 +291,12 @@
                                 <color key="textColor" systemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="외움 0  다시 0  남음 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="LBL-STUDY-STATUS">
+                                <rect key="frame" x="28" y="140" width="358" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.349999994" green="0.4199999869" blue="0.4799999893" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CARD-STUDY">
                                 <rect key="frame" x="26" y="284" width="362" height="330"/>
                                 <subviews>
@@ -332,6 +338,9 @@
                             <constraint firstItem="LBL-PROGRESS" firstAttribute="top" secondItem="SAFE-STUDY" secondAttribute="top" constant="24" id="C-STUDY-PROG-T"/>
                             <constraint firstItem="LBL-PROGRESS" firstAttribute="leading" secondItem="SAFE-STUDY" secondAttribute="leading" constant="28" id="C-STUDY-PROG-L"/>
                             <constraint firstItem="SAFE-STUDY" firstAttribute="trailing" secondItem="LBL-PROGRESS" secondAttribute="trailing" constant="28" id="C-STUDY-PROG-R"/>
+                            <constraint firstItem="LBL-STUDY-STATUS" firstAttribute="top" secondItem="LBL-PROGRESS" secondAttribute="bottom" constant="8" id="C-STUDY-STATUS-T"/>
+                            <constraint firstItem="LBL-STUDY-STATUS" firstAttribute="leading" secondItem="SAFE-STUDY" secondAttribute="leading" constant="28" id="C-STUDY-STATUS-L"/>
+                            <constraint firstItem="SAFE-STUDY" firstAttribute="trailing" secondItem="LBL-STUDY-STATUS" secondAttribute="trailing" constant="28" id="C-STUDY-STATUS-R"/>
                             <constraint firstItem="CARD-STUDY" firstAttribute="leading" secondItem="SAFE-STUDY" secondAttribute="leading" constant="26" id="C-STUDY-CARD-L"/>
                             <constraint firstItem="SAFE-STUDY" firstAttribute="trailing" secondItem="CARD-STUDY" secondAttribute="trailing" constant="26" id="C-STUDY-CARD-R"/>
                             <constraint firstItem="CARD-STUDY" firstAttribute="centerY" secondItem="SAFE-STUDY" secondAttribute="centerY" id="C-STUDY-CARD-Y"/>
@@ -344,6 +353,7 @@
                         <outlet property="hintLabel" destination="LBL-HINT" id="OUT-STUDY-HINT"/>
                         <outlet property="meaningLabel" destination="LBL-MEANING" id="OUT-STUDY-MEANING"/>
                         <outlet property="progressLabel" destination="LBL-PROGRESS" id="OUT-STUDY-PROGRESS"/>
+                        <outlet property="statusLabel" destination="LBL-STUDY-STATUS" id="OUT-STUDY-STATUS"/>
                         <outlet property="wordLabel" destination="LBL-WORD" id="OUT-STUDY-WORD"/>
                     </connections>
                 </viewController>
