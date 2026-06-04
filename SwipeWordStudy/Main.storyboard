@@ -99,7 +99,7 @@
                             <constraint firstItem="STACK-HOME" firstAttribute="centerY" secondItem="SAFE-HOME" secondAttribute="centerY" id="C-STACK-Y"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="홈" id="NAVITEM-HOME"/>
+                    <navigationItem key="navigationItem" title="VocaFlow" id="NAVITEM-HOME"/>
                     <connections>
                         <outlet property="listButton" destination="BTN-LIST" id="OUT-LIST"/>
                         <outlet property="quizButton" destination="BTN-QUIZ" id="OUT-QUIZ"/>
