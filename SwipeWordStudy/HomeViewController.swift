@@ -10,6 +10,7 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "홈"
+        subtitleLabel?.text = "카드 학습과 퀴즈로 단어를 복습하세요"
         UIFactory.applyNavigationStyle(to: navigationController)
     }
 

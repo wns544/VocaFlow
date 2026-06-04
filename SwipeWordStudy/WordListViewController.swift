@@ -45,7 +45,7 @@ final class WordListViewController: UIViewController {
             }
             return matchesSearch && matchesState
         }
-        title = "단어 목록 \(filteredWords.count)"
+        title = "단어 목록 (\(filteredWords.count))"
         tableView.reloadData()
     }
 

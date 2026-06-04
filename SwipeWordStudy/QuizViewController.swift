@@ -35,7 +35,7 @@ final class QuizViewController: UIViewController {
         scoreLabel.text = "점수 \(correctCount)"
         questionLabel.text = word.term
         answerField.text = ""
-        feedbackLabel.text = "뜻을 입력하고 확인"
+        feedbackLabel.text = "뜻을 입력한 뒤 확인"
     }
 
     @IBAction func checkAnswer() {
@@ -44,7 +44,7 @@ final class QuizViewController: UIViewController {
         let answer = (answerField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
 
         guard !answer.isEmpty else {
-            feedbackLabel.text = "뜻을 먼저 입력"
+            feedbackLabel.text = "답을 먼저 입력하세요"
             answerField.becomeFirstResponder()
             return
         }
@@ -53,7 +53,7 @@ final class QuizViewController: UIViewController {
         if word.meaning.contains(answer) {
             correctCount += 1
             scoreLabel.text = "점수 \(correctCount)"
-            feedbackLabel.text = "맞음\n\(word.meaning)"
+            feedbackLabel.text = "정답\n\(word.meaning)"
             WordStore.shared.mark(word, as: .memorized)
         } else {
             feedbackLabel.text = "틀림\n정답: \(word.meaning)"
