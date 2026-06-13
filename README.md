@@ -9,6 +9,8 @@
 - 전공트랙: 모바일 SW / 웹공학
 ## 소개 영상
 
+앱 시연과 주요 기능 설명은 아래 영상을 통해 확인할 수 있습니다. 이미지를 클릭하면 유튜브 영상으로 이동합니다.
+
 [![VocaFlow 소개 영상](https://img.youtube.com/vi/RiyKMvYYyh8/hqdefault.jpg)](https://youtu.be/RiyKMvYYyh8)
 
 ## 개발 의도
