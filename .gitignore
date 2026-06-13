@@ -2,10 +2,14 @@ DerivedData/
 DerivedData-Xcode12/
 *.xcuserstate
 *.xcuserdatad/
+xcuserdata/
 .DS_Store
 build/
+.build/
 *.ipa
 *.dSYM/
-README.md
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
 simulator-*.png
 인수인계서/

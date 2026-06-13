@@ -19,7 +19,11 @@
 		00100000000000000000000A /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00100000000000000000010A /* ResultViewController.swift */; };
 		00100000000000000000000B /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00100000000000000000010B /* QuizViewController.swift */; };
 		00100000000000000000000C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00100000000000000000010D /* Main.storyboard */; };
+		00100000000000000000000D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00100000000000000000010E /* LaunchScreen.storyboard */; };
 		00100000000000000000000E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00100000000000000000010F /* Assets.xcassets */; };
+		00100000000000000000000F /* WordBookListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001000000000000000000110 /* WordBookListViewController.swift */; };
+		001000000000000000000010 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001000000000000000000111 /* SettingsViewController.swift */; };
+		001000000000000000000011 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001000000000000000000112 /* MainTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +41,11 @@
 		00100000000000000000010B /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		00100000000000000000010C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00100000000000000000010D /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		00100000000000000000010E /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00100000000000000000010F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		001000000000000000000110 /* WordBookListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordBookListViewController.swift; sourceTree = "<group>"; };
+		001000000000000000000111 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		001000000000000000000112 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,8 +81,12 @@
 				001000000000000000000109 /* StudyViewController.swift */,
 				00100000000000000000010A /* ResultViewController.swift */,
 				00100000000000000000010B /* QuizViewController.swift */,
+				001000000000000000000110 /* WordBookListViewController.swift */,
+				001000000000000000000111 /* SettingsViewController.swift */,
+				001000000000000000000112 /* MainTabBarController.swift */,
 					00100000000000000000010C /* Info.plist */,
 					00100000000000000000010D /* Main.storyboard */,
+					00100000000000000000010E /* LaunchScreen.storyboard */,
 					00100000000000000000010F /* Assets.xcassets */,
 				);
 			path = SwipeWordStudy;
@@ -147,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00100000000000000000000C /* Main.storyboard in Resources */,
+				00100000000000000000000D /* LaunchScreen.storyboard in Resources */,
 				00100000000000000000000E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,6 +182,9 @@
 				001000000000000000000009 /* StudyViewController.swift in Sources */,
 				00100000000000000000000A /* ResultViewController.swift in Sources */,
 				00100000000000000000000B /* QuizViewController.swift in Sources */,
+				00100000000000000000000F /* WordBookListViewController.swift in Sources */,
+				001000000000000000000010 /* SettingsViewController.swift in Sources */,
+				001000000000000000000011 /* MainTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

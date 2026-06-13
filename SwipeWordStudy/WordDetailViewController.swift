@@ -41,7 +41,11 @@ final class WordDetailViewController: UIViewController {
         termLabel.text = word.term
         meaningLabel.text = "뜻\n\(word.meaning)"
         readingLabel.text = "읽기\n\(word.reading)"
-        exampleLabel.text = "예문\n\(word.example)"
+        if word.exampleMeaning.isEmpty {
+            exampleLabel.text = "예문\n\(word.example)"
+        } else {
+            exampleLabel.text = "예문\n\(word.example)\n\n예문뜻\n\(word.exampleMeaning)"
+        }
 
         let color: UIColor
         let stateDescription: String

@@ -96,4 +96,56 @@ enum UIFactory {
             .font: UIFont.systemFont(ofSize: 17, weight: .semibold)
         ]
     }
+
+    static func progressBarImage(progress: CGFloat, size: CGSize) -> UIImage {
+        let safeProgress = max(0, min(1, progress))
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = UIScreen.main.scale
+
+        return UIGraphicsImageRenderer(size: size, format: format).image { context in
+            let rect = CGRect(origin: .zero, size: size)
+            let radius = size.height / 2
+            let trackRect = rect.insetBy(dx: 0, dy: 1)
+            let fillWidth = max(size.height, trackRect.width * safeProgress)
+            let fillRect = CGRect(x: trackRect.minX, y: trackRect.minY, width: fillWidth, height: trackRect.height)
+
+            lineColor.setFill()
+            UIBezierPath(roundedRect: trackRect, cornerRadius: radius).fill()
+
+            secondaryColor.setFill()
+            UIBezierPath(roundedRect: fillRect, cornerRadius: radius).fill()
+
+            UIColor.white.withAlphaComponent(0.65).setFill()
+            let shineRect = CGRect(x: trackRect.minX + 3, y: trackRect.minY + 2, width: max(0, fillWidth - 6), height: 2)
+            UIBezierPath(roundedRect: shineRect, cornerRadius: 1).fill()
+
+            context.cgContext.setLineWidth(1)
+            UIColor.white.withAlphaComponent(0.9).setStroke()
+            UIBezierPath(roundedRect: trackRect, cornerRadius: radius).stroke()
+        }
+    }
+}
+
+extension UIColor {
+    func blended(with color: UIColor, progress: CGFloat) -> UIColor {
+        let amount = max(0, min(1, progress))
+        var red1: CGFloat = 0
+        var green1: CGFloat = 0
+        var blue1: CGFloat = 0
+        var alpha1: CGFloat = 0
+        var red2: CGFloat = 0
+        var green2: CGFloat = 0
+        var blue2: CGFloat = 0
+        var alpha2: CGFloat = 0
+
+        getRed(&red1, green: &green1, blue: &blue1, alpha: &alpha1)
+        color.getRed(&red2, green: &green2, blue: &blue2, alpha: &alpha2)
+
+        return UIColor(
+            red: red1 + (red2 - red1) * amount,
+            green: green1 + (green2 - green1) * amount,
+            blue: blue1 + (blue2 - blue1) * amount,
+            alpha: alpha1 + (alpha2 - alpha1) * amount
+        )
+    }
 }
