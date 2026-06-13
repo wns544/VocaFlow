@@ -7,7 +7,9 @@
 - 이름: 장원준
 - 학번: 1971293
 - 전공트랙: 모바일 SW / 웹공학
-- 소개 영상: [VocaFlow 소개 영상](https://youtu.be/RiyKMvYYyh8)
+## 소개 영상
+
+[![VocaFlow 소개 영상](https://img.youtube.com/vi/RiyKMvYYyh8/hqdefault.jpg)](https://youtu.be/RiyKMvYYyh8)
 
 ## 개발 의도
 
